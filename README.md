@@ -1,6 +1,5 @@
-# Ejercicio Laravel
+# Enunciado
 
-En este repositorio se encuentra la solución al siguiente ejercicio:
 
 Cree una aplicación web en php utilizando Laravel que permita realizar las siguientes acciones:
 
@@ -19,49 +18,23 @@ son los mejores”) y para los vehículos tipo Toyota muestra la placa en rojo y
 d. Estadísticas vehículos: Muestre cuántos vehículos de cada tipo existen registrados en el sistema
 (por ejemplo: 3 Mazda, 2 Toyota, 0 Chevrolet).
 
-Antes de mostrar las vistas de la aplicación, explicare un poco sobre la estructura interna del proyecto
+# El proyecto contiene:
 
-Para el desarrollo de esta aplicación se crearon:
+Dos controladores: Persona (Restricción de ingreso usando el código A765) y VehiculoController que contiene las funcionalidades de crear, listar y estadísticas de los vehículos.
 
-Dos controladores: RestriccionController y VehiculoController. El primero para restringir el ingreso de la Zona
-de Inicio (si en la url no tiene el código A765, no puede obtener la vista). El segundo para poder crear el vehiculo
-y su dueño (se representa como Persona), listar los vehiculos y obtener las estadísticas de los vehiculos.
+Dos modelos: Persona y Vehículo. ambos relacionados con una relación de pertenencia uno a uno, y representan los datos del dueño y del vehículo.
 
-Dos modelos Persona y Vehiculo. Estos dos modelos estan relacionados con dos métodos persona() y vehiculo() para
-poder implementar en la base de datos una relacion uno a uno (Una persona solo puede tener un vehículo, y un vehiculo solo 
-tiene un dueño). 
+Cuatro vistas: Zona de Inicio, registro de vehículos, listarVehiculos y estadísticas.
 
-Cuatro vistas: para la zona de inicio, registrar vehiculos, listar vehiculos y la última para ver las estadisticas.
+Como se indica en el enunciado, se accede con la url: http://localhost:8000/A765.
+
+# Correr el proyecto:
 
 
-Para acceder a la zona de inicio: se necesita ir a la url : http://localhost:8000/Zona-Inicio/A765.
-
-
-Vista Zona de Inicio
-![Zona-Inicio](https://github.com/MariaRosales1/Ejercicio-Laravel/blob/master/Zona-Inicio.PNG)
-
-
-Vista Registro de vehículos
-
-![Registro-Vehiculos](https://github.com/MariaRosales1/Ejercicio-Laravel/blob/master/Registro.PNG)
-
-
-Vista Lista de vehículos
-
-![Lista-Vehiculos](https://github.com/MariaRosales1/Ejercicio-Laravel/blob/master/lista.PNG)
-
-Vista de estadísticas
-
-![Estadísticas-Vehiculos](https://github.com/MariaRosales1/Ejercicio-Laravel/blob/master/Estadisticas.PNG)
-
-
-Para poder correr el proyecto, sigue los siguientes pasos:
-
-1. Descarga el repositorio como ZIP
-2. Pon el archivo en la carpeta www de tu servidor web (en mi caso es wamp64)
-3. Descomprimelo y abrelo con un editor (puede ser visual studio code)
-4. Cambias el archivo env.example por .env y configuras tu base de datos
-5. Si debes crear una clave, abres la terminal(debe estar ubicado en la ruta del proyecto) y pones **php artisan key:generate**
-6. Teniendo la terminal abierta, generas la migración: **php artisan migrate**
-7. Como la aplicación tiene unos datos como ejemplo, para obtenerlos, en la misma terminal escribe **php artisan db:seed**
-8. Finalmente, pones **php artisan serve** para poder visualizar las vistas en el navegador.
+1. Descargar el proyecto
+2. Abrir el proyecto usando con un editor de código de su preferencia 
+3. Modificar el archivo env.example por .env y configurarlo de acuerdo a su base de datos (usuario, contraseña, nombre de la base,         gestor de base de datos)
+4. Crear una clave, usando el comando **php artisan key:generate** desde la terminal
+5. Generar la migración para crear el esquema en la base de datos **php artisan migrate**
+6. Iniciar el servidor con el comando **php artisan serve** en el terminal.
+7. Ingresar al navegador, en la dirección que arroja la consola, generalmente: 127.0.0.1:8000 o localhost:8000
